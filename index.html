@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<!-- [ТЕМА: Мова гіпертекстової розмітки] <!DOCTYPE html> вмикає сучасний стандарт HTML5 в усіх браузерах -->
+<html lang="uk">
+<head>
+  <!-- [ТЕМА: HTML] Кодування UTF-8 потрібне, щоб український текст відображався без "кракозябр" -->
+  <meta charset="UTF-8">
+
+  <!-- [ТЕМА: Адаптивна верстка] Дозволяє сторінці підлаштовувати ширину під екран смартфона чи планшета -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- СПРОБУЙ ЗМІНИТИ: заголовок вкладки браузера та опис для пошуковиків -->
+  <title>IGNITE CUSTOMS — Тюнінг і стайлінг спорткарів у Києві</title>
+  <meta name="description" content="Студія кастомного тюнінгу та візуального стайлінгу IGNITE CUSTOMS у Києві: аерообвіси, вінілові плівки, неон, LED-оптика та захисна кераміка під ключ.">
+  <meta name="theme-color" content="#0b0d12">
+
+  <!-- [ТЕМА: Хостинг і соцмережі] Метатеги Open Graph визначають картку сайту при поширенні посилання в Telegram -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="IGNITE CUSTOMS — Тюнінг і стайлінг спорткарів у Києві">
+  <meta property="og:description" content="Аеродинамічні обвіси, вінілова графіка, неонова підсвітка й LED-оптика під ключ за 5–14 днів.">
+  <meta property="og:image" content="./assets/cars/hero-mustang-orange.jpg">
+
+  <!-- [ТЕМА: Графіка для веб] Вбудована векторна іконка (SVG) для вкладки браузера (favicon) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b0d12'/%3E%3Cpath d='M18 4L8 18h7l-1 10 10-14h-7l1-10z' fill='%23ff5a1f'/%3E%3C/svg%3E">
+
+  <!-- [ТЕМА: Створення веб-сторінок] Підключення зовнішніх шрифтів Google Fonts з підтримкою кирилиці -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- [ТЕМА: Хостинг сайта] Крапка і слеш "./" означають відносний шлях від поточної папки — це важливо для GitHub Pages! -->
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <!-- Доступність: швидкий перехід до основного контенту при навігації клавіатурою (клавіша Tab) -->
+  <a class="skip-link" href="#main">Перейти до основного змісту</a>
+
+  <!-- [ТЕМА: Верстка веб-сторінок] Семантичний тег <header> для верхньої навігаційної панелі -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <!-- СПРОБУЙ ЗМІНИТИ: назву студії або колір логотипу SVG (fill="#ff5a1f") -->
+      <a class="brand" href="#hero" aria-label="IGNITE CUSTOMS — на початок">
+        <svg class="brand-mark" width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#131720" stroke="#252e3d"/>
+          <path d="M18 5L9 18h6.5L14.5 27 23 14h-6.5L18 5z" fill="#ff5a1f"/>
+        </svg>
+        <span class="brand-text">IGNITE <span>CUSTOMS</span></span>
+      </a>
+
+      <!-- [ТЕМА: Гіпертекстова розмітка] Якірні посилання href="#services" прокручують сторінку до блоку з id="services" -->
+      <nav class="desktop-nav" aria-label="Головна навігація">
+        <a href="#services">Послуги</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#booking">Контакти</a>
+        <a class="btn btn-primary btn-sm" href="#booking">Записатись</a>
+      </nav>
+
+      <!-- [ТЕМА: Адаптивна верстка + DOM] Кнопка бургер-меню з'являється на екранах до 760px і керується через app.js -->
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menu-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Відкрити меню навігації">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="4" y1="7" x2="20" y2="7"/>
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <line x1="4" y1="17" x2="20" y2="17"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Атрибут hidden ховає мобільне меню, доки користувач не натисне кнопку вище -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Мобільне меню" hidden>
+      <div class="wrap mobile-nav-inner">
+        <a href="#services">Послуги</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#booking">Контакти</a>
+        <a class="btn btn-primary" href="#booking">Записатись</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Семантичний тег <main> обгортає головний вміст сторінки -->
+  <main id="main">
+    <!-- ==================== СЕКЦІЯ 1: HERO (ГОЛОВНИЙ ЕКРАН) ==================== -->
+    <section id="hero" class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-content">
+          <!-- [ТЕМА: Анімаційні ефекти] Елемент .status-dot пульсує за допомогою CSS @keyframes pulseDot -->
+          <p class="eyebrow">
+            <span class="status-dot" aria-hidden="true"></span>
+            Київ · Студія візуального стайлінгу
+          </p>
+
+          <!-- СПРОБУЙ ЗМІНИТИ: головний заголовок <h1> (на сторінці він має бути один) та короткий опис -->
+          <h1>Кастомний тюнінг і стайлінг спорткарів</h1>
+          <p class="hero-lead">
+            Обвіси, вінілові плівки, діодна оптика й неонова підсвітка під ключ. Збираємо проєкти за 5–14 днів із гарантією 3 роки.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#booking">Обговорити проєкт</a>
+            <a class="btn btn-secondary" href="#gallery">Дивитись галерею</a>
+          </div>
+
+          <!-- [ТЕМА: HTML] Список описів <dl> (Definition List): <dt> — назва показника, <dd> — значення -->
+          <!-- СПРОБУЙ ЗМІНИТИ: цифри або підписи в блоці метрик -->
+          <dl class="hero-metrics">
+            <div class="metric">
+              <dt>Реалізованих авто</dt>
+              <dd>64+</dd>
+            </div>
+            <div class="metric">
+              <dt>Термін збірки</dt>
+              <dd>5–14 днів</dd>
+            </div>
+            <div class="metric">
+              <dt>Гарантія на роботи</dt>
+              <dd>3 роки</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-frame">
+            <!-- [ТЕМА: Методи створення та збереження зображень]
+                 1) Ім'я файлу латиницею без пробілів (hero-mustang-orange.jpg).
+                 2) Атрибути width і height резервують місце ще до завантаження фото, щоб сторінка не "стрибала".
+                 3) alt описує картинку для пошуковиків і скрінрідерів.
+                 4) fetchpriority="high" каже браузеру завантажити головне фото першим. -->
+            <img
+              src="./assets/cars/hero-mustang-orange.jpg"
+              width="1920"
+              height="1080"
+              alt="Ford Mustang у вогняно-помаранчевому вінілі з чорними гоночними смугами та карбоновим сплітером"
+              fetchpriority="high">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== СЕКЦІЯ 2: НАПРЯМКИ РОБІТ ==================== -->
+    <section id="services" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Напрямки робіт</h2>
+          <p class="section-sub">Чотири ключові дисципліни, які поєднуємо в єдиний візуальний проєкт.</p>
+        </div>
+
+        <!-- [ТЕМА: Верстка веб-сторінок] CSS Grid автоматично розкладає картки в 4, 2 або 1 колонку -->
+        <!-- СПРОБУЙ ЗМІНИТИ: відредагуй опис послуг або скопіюй один <article class="service-card"> щоб додати нову -->
+        <div class="services-grid">
+          <article class="service-card">
+            <!-- [ТЕМА: Графіка для веб] Вбудований SVG не втрачає чіткості при будь-якому масштабі екрана -->
+            <div class="service-icon service-icon--orange" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 16h18l-2-5H6l-3 5z"/>
+                <path d="M6 11l3-4h6l3 4"/>
+                <circle cx="7" cy="17" r="2"/>
+                <circle cx="17" cy="17" r="2"/>
+              </svg>
+            </div>
+            <h3>Аеродинамічні обвіси</h3>
+            <p>Виготовлення й підгонка передніх сплітерів, задніх дифузорів, розширень арок та антикрил із карбону й ABS-пластику.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon service-icon--cyan" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2"/>
+                <path d="M9 5l6 14"/>
+                <path d="M13 5l6 14"/>
+              </svg>
+            </div>
+            <h3>Вініл і гоночна графіка</h3>
+            <p>Повне обклеювання литим вінілом, двоколірні лівреї, матовий хром, сатин і точні смуги без стиків на видимих деталях.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon service-icon--cyan" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/>
+              </svg>
+            </div>
+            <h3>Неон і LED-оптика</h3>
+            <p>Контурна підсвітка днища, колісних арок і решітки, встановлення Bi-LED лінз, ДХВ-кілець і прихована проводка зі штатним захистом.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon service-icon--orange" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6l7-3z"/>
+                <path d="M9.5 12l1.8 1.8 3.7-3.8"/>
+              </svg>
+            </div>
+            <h3>Кераміка та бронеплівка</h3>
+            <p>Захист зони ризику поліуретаном, багатоетапне полірування лаку та гідрофобна кераміка для глибокого блиску кольору.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== СЕКЦІЯ 3: КОРОТКА ГАЛЕРЕЯ ==================== -->
+    <section id="gallery" class="section section--gallery">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Коротка галерея проєктів</h2>
+          <p class="section-sub">Натисніть на будь-яке авто, щоб відкрити фото у повному розмірі та переглянути список робіт.</p>
+        </div>
+
+        <!-- [ТЕМА: DOM та інтерактивні сторінки]
+             Атрибут data-index="0".. "5" зв'язує кожну HTML-кнопку з елементом масиву PROJECTS у файлі app.js.
+             loading="lazy" економить трафік: картинки завантажуються тоді, коли користувач доскролює до галереї. -->
+        <div class="gallery-grid" id="gallery-grid">
+          <button class="gallery-card" type="button" data-index="0" aria-label="Відкрити проєкт SRT Viper GT3-R">
+            <img src="./assets/cars/viper-neon-gt3.jpg" width="1600" height="900" loading="lazy" alt="SRT Viper GT3-R з бірюзово-рожевою неоновою лівреєю та заднім антикрилом">
+            <span class="gallery-overlay">
+              <span class="gallery-tag">Неон · Ліврея</span>
+              <span class="gallery-title">SRT Viper GT3-R</span>
+            </span>
+          </button>
+
+          <button class="gallery-card" type="button" data-index="1" aria-label="Відкрити проєкт Shelby GT500 Cobra">
+            <img src="./assets/cars/shelby-gt500-blue.jpg" width="1600" height="900" loading="lazy" alt="Shelby GT500 Cobra у темно-синьому глянці з білими смугами та блакитною підсвіткою коліс">
+            <span class="gallery-overlay">
+              <span class="gallery-tag">Вініл · Підсвітка арок</span>
+              <span class="gallery-title">Shelby GT500 Cobra</span>
+            </span>
+          </button>
+
+          <button class="gallery-card" type="button" data-index="2" aria-label="Відкрити проєкт Chevrolet Camaro SS">
+            <img src="./assets/cars/camaro-fire-red.jpg" width="1200" height="676" loading="lazy" alt="Chevrolet Camaro SS у глибокому червоному кольорі з карбоновим капотом та ДХВ-кільцями">
+            <span class="gallery-overlay">
+              <span class="gallery-tag">Карбон · LED-оптика</span>
+              <span class="gallery-title">Chevrolet Camaro SS</span>
+            </span>
+          </button>
+
+          <button class="gallery-card" type="button" data-index="3" aria-label="Відкрити проєкт RDSTR Concept">
+            <img src="./assets/cars/concept-rdstr-front.jpg" width="1536" height="864" loading="lazy" alt="Білий футуристичний спорткар RDSTR з підйомними дверима та суцільною світлодіодною смугою">
+            <span class="gallery-overlay">
+              <span class="gallery-tag">Сатин · Діодна стрічка</span>
+              <span class="gallery-title">RDSTR Concept</span>
+            </span>
+          </button>
+
+          <button class="gallery-card" type="button" data-index="4" aria-label="Відкрити проєкт Bugatti Veyron">
+            <img src="./assets/cars/bugatti-ice-fire.jpg" width="1200" height="675" loading="lazy" alt="Bugatti Veyron у біло-сріблястому сатині з синьою оптикою та глянцевою керамікою">
+            <span class="gallery-overlay">
+              <span class="gallery-tag">Кераміка · Оптика</span>
+              <span class="gallery-title">Bugatti Veyron</span>
+            </span>
+          </button>
+
+          <button class="gallery-card" type="button" data-index="5" aria-label="Відкрити проєкт Ford Mustang GT">
+            <img src="./assets/cars/mustang-cobalt-gt.jpg" width="1600" height="900" loading="lazy" alt="Ford Mustang GT у кольорі кобальт-синій зі сріблястими смугами та холодним ксеноном">
+            <span class="gallery-overlay">
+              <span class="gallery-tag">Металік · Полірування</span>
+              <span class="gallery-title">Ford Mustang GT</span>
+            </span>
+          </button>
+
+          <!-- СПРОБУЙ ЗМІНИТИ: щоб додати 7-ме фото, поклади файл у assets/cars/, додай запис у app.js і розкоментуй шаблон нижче:
+          <button class="gallery-card" type="button" data-index="6" aria-label="Відкрити проєкт Моє авто">
+            <img src="./assets/cars/my-car.jpg" width="1600" height="900" loading="lazy" alt="Опис твого авто">
+            <span class="gallery-overlay">
+              <span class="gallery-tag">Стиль · Послуга</span>
+              <span class="gallery-title">Моє авто</span>
+            </span>
+          </button>
+          -->
+        </div>
+
+        <!-- [ТЕМА: Мультимедіа на веб-сторінках]
+             СПРОБУЙ ЗМІНИТИ: якщо матимеш власне коротке відео (.mp4) чи звук вихлопу (.mp3) у папці assets/,
+             можеш розкоментувати тег <video> або <audio> нижче:
+        <div class="media-demo">
+          <video controls preload="metadata" poster="./assets/cars/hero-mustang-orange.jpg" width="1200">
+            <source src="./assets/video/showreel.mp4" type="video/mp4">
+            Ваш браузер не підтримує відтворення відео.
+          </video>
+        </div>
+        -->
+      </div>
+    </section>
+
+    <!-- ==================== СЕКЦІЯ 4: КОНТАКТИ ТА ФОРМА ЗАПИСУ ==================== -->
+    <section id="booking" class="section section--booking">
+      <div class="wrap booking-grid">
+        <div class="booking-info">
+          <h2>Обговорити ваш проєкт</h2>
+          <p class="section-sub">
+            Розрахуємо вартість матеріалів, підберемо палітру під ваш кузов і зафіксуємо дату заїзду в бокс.
+          </p>
+
+          <!-- СПРОБУЙ ЗМІНИТИ: місто, вулицю, графік роботи та електронну пошту -->
+          <dl class="studio-contacts">
+            <div class="contact-item">
+              <dt>Локація</dt>
+              <dd>Київ, Поділ · вул. Набережно-Лугова</dd>
+            </div>
+            <div class="contact-item">
+              <dt>Графік боксу</dt>
+              <dd>Пн–Сб, 10:00–20:00</dd>
+            </div>
+            <div class="contact-item">
+              <dt>Пошта для макетів</dt>
+              <dd><a href="mailto:hello@ignite-customs.example">hello@ignite-customs.example</a></dd>
+            </div>
+          </dl>
+
+          <div class="social-row">
+            <a class="social-link" href="#booking">Telegram-канал</a>
+            <a class="social-link" href="#booking">Instagram-портфоліо</a>
+          </div>
+        </div>
+
+        <!-- [ТЕМА: Взаємодія клієнт-сервер]
+             <form> збирає дані користувача (клієнт). Атрибут novalidate вимикає стандартні підказки браузера,
+             щоб красиву перевірку та підготовку JSON виконав наш скрипт у app.js. -->
+        <form id="booking-form" class="booking-form" novalidate>
+          <div class="form-row">
+            <div class="field">
+              <!-- Атрибут for="name" зв'язує підпис з полем id="name" -->
+              <label for="name">Ваше ім'я</label>
+              <input type="text" id="name" name="name" autocomplete="name" placeholder="Олексій" required>
+              <span class="field-error" id="error-name" aria-live="polite"></span>
+            </div>
+
+            <div class="field">
+              <label for="contact">Телефон або Telegram</label>
+              <input type="text" id="contact" name="contact" autocomplete="tel" placeholder="@username або контакт" required>
+              <span class="field-error" id="error-contact" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field">
+              <label for="car">Автомобіль</label>
+              <input type="text" id="car" name="car" placeholder="Ford Mustang GT, 2021">
+            </div>
+
+            <div class="field">
+              <label for="service">Напрямок робіт</label>
+              <select id="service" name="service">
+                <option value="full">Повний стайлінг-пакет</option>
+                <option value="aero">Аеродинамічний обвіс</option>
+                <option value="vinyl">Вініл і гоночна графіка</option>
+                <option value="neon">Неон і LED-оптика</option>
+                <option value="protect">Кераміка та бронеплівка</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="reference">Стиль або референс</label>
+            <input type="text" id="reference" name="reference" placeholder="Наприклад: неонова ліврея або помаранчевий вініл">
+          </div>
+
+          <div class="form-footer">
+            <button type="submit" class="btn btn-primary btn-block">Надіслати заявку</button>
+          </div>
+
+          <!-- Порожній блок, у який JS виводить підтвердження після натискання кнопки -->
+          <div id="form-status" class="form-status" role="status" aria-live="polite" hidden></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Семантичний підвал сайту -->
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <span class="brand-text">IGNITE <span>CUSTOMS</span></span>
+        <span class="footer-note">Київ · Кастомний тюнінг і візуальний стайлінг</span>
+      </div>
+      <div class="footer-links">
+        <a href="#services">Послуги</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#booking">Запис</a>
+        <span class="footer-copy">© 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- [ТЕМА: DOM] Повноекранне модальне вікно (Lightbox). Атрибут hidden приховує його до кліку по фото -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" hidden>
+    <div class="lightbox-backdrop" data-close="true"></div>
+    <div class="lightbox-panel">
+      <div class="lightbox-topbar">
+        <span class="lightbox-counter" id="lightbox-counter">1 / 6</span>
+        <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Закрити перегляд">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="lightbox-stage">
+        <button type="button" class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Попереднє фото">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+        </button>
+
+        <img id="lightbox-img" src="./assets/cars/viper-neon-gt3.jpg" alt="">
+
+        <button type="button" class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Наступне фото">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="lightbox-info">
+        <div class="lightbox-meta">
+          <h3 id="lightbox-title"></h3>
+          <div class="lightbox-tags" id="lightbox-tags"></div>
+          <p id="lightbox-desc"></p>
+        </div>
+        <button type="button" class="btn btn-primary" id="lightbox-want-btn">Хочу схожий проєкт</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- [ТЕМА: Веб-програмування] Скрипт підключаємо в самому кінці <body>, щоб на момент запуску весь HTML вже був у DOM -->
+  <script src="./app.js"></script>
+</body>
+</html>
